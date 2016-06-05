@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SmartParking2.LocationCell">
+	<!--	<ContentView.Content>-->
+	<StackLayout Spacing="15" Padding="10" VerticalOptions="StartAndExpand">
+		<Grid Padding="0,1,1,1" RowSpacing="1" ColumnSpacing="1" VerticalOptions="FillAndExpand" BackgroundColor="{DynamicResource Border}">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="60" />
+				<RowDefinition Height="30" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="4" />
+				<ColumnDefinition Width="2*" />
+				<ColumnDefinition Width="1" />
+				<ColumnDefinition Width="2*" />
+				<ColumnDefinition Width="1.7*" />
+			</Grid.ColumnDefinitions>
+			<BoxView Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="#00A2D3">
+				<BoxView.Triggers>
+					<DataTrigger TargetType="BoxView" Binding="{Binding IsAvailable}" Value="Full">
+						<Setter Property="Color" Value="#C5C5C5" />
+					</DataTrigger>
+					<DataTrigger TargetType="BoxView" Binding="{Binding IsAvailable}" Value="HighDemand">
+						<Setter Property="Color" Value="#E74C3C" />
+					</DataTrigger>
+				</BoxView.Triggers>
+			</BoxView>
+			<StackLayout Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Spacing="0" Padding="10,0,0,0" VerticalOptions="FillAndExpand" BackgroundColor="White">
+				<Label Text="{Binding Address}" Style="{DynamicResource SPListItemTextStyle}" />
+				<StackLayout Orientation="Horizontal">
+					<Label Text="{Binding ZipCode}" Style="{DynamicResource SPDetailTextStyle}" />
+					<Label Text="{Binding Suburb}" Style="{DynamicResource SPDetailTextStyle}" />
+				</StackLayout>
+				<StackLayout VerticalOptions="Center" HeightRequest="20" Padding="0" Orientation="Horizontal">
+					<Image Source="Timer-50.png" WidthRequest="15" HeightRequest="15" />
+					<Label Text="{Binding Hour}" FontSize="12" TextColor="#9F9F9F" VerticalOptions="Center" />
+					<BoxView Color="Transparent" WidthRequest="20" />
+					<Image Source="US Dollar-52.png" WidthRequest="15" HeightRequest="15" VerticalOptions="Center" />
+					<Label Text="{Binding Fees}" FontSize="12" TextColor="#9F9F9F" VerticalOptions="Center" />
+				</StackLayout>
+			</StackLayout>
+			<Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill" Grid.Row="0" Grid.RowSpan="2" Grid.Column="4">
+				<Image.Source>
+					<UriImageSource Uri="{Binding ImageUri}" CacheValidity="3" CachingEnabled="true" />
+				</Image.Source>
+			</Image>
+			<StackLayout Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Padding="5" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="#F6F6F6">
+				<Image HeightRequest="15" WidthRequest="15" Source="Sedan3.png" />
+				<Label Text="{Binding Available}" Style="{DynamicResource SPDetailTextStyle}" />
+			</StackLayout>
+			<StackLayout Grid.Row="1" Grid.Column="3" Padding="5" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="#F6F6F6">
+				<Image HeightRequest="15" WidthRequest="15" Source="One Free-48.png" />
+				<Label Text="{Binding Free}" Style="{DynamicResource SPDetailTextStyle}" />
+			</StackLayout>
+		</Grid>
+	</StackLayout>
+	<!--	</ContentView.Content>-->
+</ContentView>

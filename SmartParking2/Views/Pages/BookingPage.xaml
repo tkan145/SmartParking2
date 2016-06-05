@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:SmartParking2;assembly=SmartParking2" x:Class="SmartParking2.BookingPage">
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+	</ContentPage.Padding>
+	<local:AlwaysScrollView Grid.RowSpan="2" x:Name="MainScroll">
+		<StackLayout Spacing="0">
+			<StackLayout Padding="16,16,16,16" Spacing="{StaticResource SmallSpacing}" HorizontalOptions="FillAndExpand" BackgroundColor="{DynamicResource Primary}">
+				<Label Text="{Binding Location.Address}" FontSize="Medium" Style="{DynamicResource TitleStyle}" TextColor="White" />
+				<StackLayout Orientation="Horizontal">
+					<Label Text="{Binding Location.ZipCode}" Style="{DynamicResource SPDetailTextStyle}" TextColor="White" />
+					<Label Text="{Binding Location.City}" Style="{DynamicResource SPDetailTextStyle}" TextColor="White" />
+				</StackLayout>
+			</StackLayout>
+			<StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}" Padding="{DynamicResource CardPadding}">
+				<!--Details-->
+				<local:CardView>
+					<StackLayout Spacing="0">
+						<local:LabelSection Text="Details" />
+						<local:HeaderDivider />
+						<StackLayout Padding="{StaticResource StandardPadding}" BackgroundColor="White" Orientation="Vertical">
+							<Label Text="Thank you for booking. Your booking detail is below" Style="{DynamicResource SPListItemTextStyle}" />
+						</StackLayout>
+						<StackLayout Padding="{StaticResource StandardPadding}" BackgroundColor="White" Orientation="Vertical">
+							<local:HeaderDivider />
+							<Label Text="{Binding Location.Fees}" Style="{DynamicResource SPListItemTextStyle}" />
+							<Label Text="{Binding Location.Description}" Style="{DynamicResource SPListItemTextStyle}" />
+							<Label Text="{Binding Location.Hour}" Style="{DynamicResource SPListItemTextStyle}" />
+							<Label Text="{Binding Location.Description}" Style="{DynamicResource SPListItemTextStyle}" />
+							<local:FooterDivider />
+						</StackLayout>
+						<local:FooterDivider />
+					</StackLayout>
+				</local:CardView>
+			</StackLayout>
+			<StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}" Padding="{DynamicResource CardPadding}">
+				<!--Booking-->
+				<local:CardView>
+					<StackLayout Spacing="0" BackgroundColor="White">
+						<Button x:Name="Dismiss" Text="Dismiss" Clicked="OnButtonClicked" />
+					</StackLayout>
+				</local:CardView>
+			</StackLayout>
+		</StackLayout>
+	</local:AlwaysScrollView>
+</ContentPage>

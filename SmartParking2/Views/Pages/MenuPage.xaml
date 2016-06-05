@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:SmartParking2;assembly=SmartParking2" x:Class="SmartParking2.MenuPage">
+	<ContentPage.Content>
+		<local:NavigationView x:Name="NavView" />
+	</ContentPage.Content>
+</ContentPage>

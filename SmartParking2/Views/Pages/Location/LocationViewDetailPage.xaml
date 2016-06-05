@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:SmartParking2;assembly=SmartParking2" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" x:Class="SmartParking2.LocationViewDetailPage" Title="Details" BackgroundColor="{DynamicResource WindowBackgroundTable}">
+	<local:AlwaysScrollView Grid.RowSpan="2" x:Name="MainScroll">
+		<StackLayout Spacing="0">
+			<StackLayout Padding="16,16,16,16" Spacing="{StaticResource SmallSpacing}" HorizontalOptions="FillAndExpand" BackgroundColor="{DynamicResource Primary}">
+				<Label Text="{Binding Location.Address}" FontSize="Medium" Style="{DynamicResource TitleStyle}" TextColor="White" />
+				<StackLayout Orientation="Horizontal">
+					<Label Text="{Binding Location.ZipCode}" Style="{DynamicResource SPDetailTextStyle}" TextColor="White" />
+					<Label Text="{Binding Location.City}" Style="{DynamicResource SPDetailTextStyle}" TextColor="White" />
+				</StackLayout>
+			</StackLayout>
+			<StackLayout Spacing="0" HorizontalOptions="FillAndExpand">
+				<maps:Map HeightRequest="150" x:Name="MyMap" IsShowingUser="true" MapType="Hybrid" />
+			</StackLayout>
+			<StackLayout Padding="20,0,8,0" Spacing="{StaticResource SmallSpacing}" BackgroundColor="#FFFFFF" Orientation="Horizontal">
+				<Grid ColumnSpacing="{StaticResource StandardSpacing}">
+					<Grid.Padding>
+						<OnPlatform x:TypeArguments="Thickness" iOS="0" Android="16,8" />
+					</Grid.Padding>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition Width="2*" />
+					</Grid.ColumnDefinitions>
+					<Image Source="Sedan.png" Grid.Column="0" />
+					<Label Grid.Column="1" VerticalOptions="Center" Style="{DynamicResource SPDetailTextStyle}" Text="{Binding Location.Available}" />
+					<Image Grid.Column="2" Source="Timer-50.png" />
+					<Label Grid.Column="3" VerticalOptions="Center" Style="{DynamicResource SPDetailTextStyle}" Text="{Binding Location.Hour}" />
+					<Image Grid.Column="4" Source="US Dollar-52.png" />
+					<Label Grid.Column="5" VerticalOptions="Center" Style="{DynamicResource SPDetailTextStyle}" TextColor="{DynamicResource DetailTextColor}" Text="{Binding Location.Fees}" />
+					<Button Grid.Column="6" HeightRequest="30" x:Name="ParkingDirections" Command="{Binding NavigateCommand}" CommandParameter="{Binding ,}" TextColor="White" Image="Near Me-48" />
+				</Grid>
+			</StackLayout>
+			<StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}" Padding="{DynamicResource CardPadding}">
+				<!--Details-->
+				<local:CardView>
+					<StackLayout Spacing="0">
+						<local:LabelSection Text="Details" />
+						<local:HeaderDivider />
+						<StackLayout Padding="{StaticResource StandardPadding}" BackgroundColor="White" Orientation="Vertical">
+							<Label Text="{Binding Location.Description}" Style="{DynamicResource SPListItemTextStyle}" />
+							<Label Text="{Binding Location.Description}" Style="{DynamicResource SPListItemTextStyle}" />
+							<Label Text="{Binding Location.Description}" Style="{DynamicResource SPListItemTextStyle}" />
+							<Label Text="{Binding Location.Description}" Style="{DynamicResource SPListItemTextStyle}" />
+						</StackLayout>
+						<local:FooterDivider />
+					</StackLayout>
+				</local:CardView>
+			</StackLayout>
+			<StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}" Spacing="{DynamicResource CardSpacing}" Padding="{DynamicResource CardPadding}">
+				<!--Booking-->
+				<local:CardView>
+					<StackLayout Spacing="0" BackgroundColor="White">
+						<Button x:Name="Booking" Text="Book now" Clicked="OnButtonClicked" Command="{Binding BookingCommand}">
+						</Button>
+					</StackLayout>
+				</local:CardView>
+			</StackLayout>
+		</StackLayout>
+	</local:AlwaysScrollView>
+</ContentPage>

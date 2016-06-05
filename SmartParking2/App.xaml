@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SmartParking2.App">
+	<Application.Resources>
+		<ResourceDictionary>
+			<Color x:Key="Primary">#2196F3</Color>
+			<Color x:Key="PrimaryDark">#1976D2</Color>
+			<Color x:Key="PrimaryLight">#BBDEFB</Color>
+			<Color x:Key="Icon">#FFFFFF</Color>
+			<Color x:Key="Accent">#FF5252</Color>
+			<Color x:Key="PrimaryText">#212121</Color>
+			<Color x:Key="SecondaryText">#727272</Color>
+			<Color x:Key="Divider">#B6B6B6</Color>
+			<Color x:Key="ListSeparator">#C8C7CC</Color>
+			<Color x:Key="WindowBackground">#F5F5F5</Color>
+			<Color x:Key="Border">#E3E3E3</Color>
+			<Color x:Key="Complete">#E3E3E3</Color>
+			<Color x:Key="Alert">#E74C3C</Color>
+			<Color x:Key="Unresolved">#C5C5C5</Color>
+			<!-- Padding and Spacing -->
+			<Thickness x:Key="StandardPadding">16</Thickness>
+			<x:Double x:Key="SmallSpacing">4</x:Double>
+			<x:Double x:Key="StandardSpacing">16</x:Double>
+			<OnPlatform x:TypeArguments="Thickness" Android="8,16" iOS="0,0,0,16" x:Key="CardPadding" />
+			<OnPlatform x:TypeArguments="x:Double" Android="16" iOS="0" x:Key="CardSpacing" />
+			<!-- Font Size-->
+			<OnPlatform x:TypeArguments="Color" Android="#F5F5F5" iOS="#EFEFF4" WinPhone="#EFEFF4" x:Key="WindowBackgroundTable" />
+			<OnPlatform x:TypeArguments="x:Double" Android="18" iOS="13" x:Key="LabelSectionFontSize" />
+			<OnPlatform x:TypeArguments="x:Double" Android="16" iOS="16" x:Key="ListItemTextStyleSize" />
+			<OnPlatform x:TypeArguments="x:Double" Android="16" iOS="16" x:Key="SPListItemTextStyleSize" />
+			<OnPlatform x:TypeArguments="x:Double" Android="13" iOS="13" x:Key="SPListItemDetailTextStyleSize" />
+			<Style x:Key="SPListItemTextStyle" TargetType="Label" BaseResourceKey="ListItemTextStyle">
+				<Setter Property="FontSize" Value="{DynamicResource SPListItemTextStyleSize}" />
+			</Style>
+			<Style x:Key="SPDetailTextStyle" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
+				<Setter Property="FontSize" Value="{DynamicResource SPListItemDetailTextStyleSize}" />
+			</Style>
+			<Style x:Key="SectionLabelTextStyle" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
+				<Setter Property="FontSize" Value="{DynamicResource LabelSectionFontSize}" />
+				<Setter Property="TextColor" Value="{DynamicResource SecondaryText}" />
+			</Style>
+		</ResourceDictionary>
+	</Application.Resources>
+</Application>

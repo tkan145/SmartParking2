@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:local="clr-namespace:SmartParking2;assembly=SmartParking2" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SmartParking2.MapPage" Icon="map.png" Title="Map Page">
+	<ContentPage.Content>
+		<maps:Map x:Name="myMap" MapType="Street" WidthRequest="{x:Static local:App.ScreenWidth}" HeightRequest="{x:Static local:App.ScreenHeight}" />
+	</ContentPage.Content>
+</ContentPage>

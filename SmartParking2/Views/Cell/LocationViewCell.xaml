@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:SmartParking2;assembly=SmartParking2" x:Class="SmartParking2.LocationViewCell">
+	<StackLayout Spacing="0" HeightRequest="110">
+		<StackLayout.Padding>
+			<OnPlatform x:TypeArguments="Thickness" iOS="0" Android="0,4" WinPhone="0" />
+		</StackLayout.Padding>
+		<local:CardView HeightRequest="110">
+			<Grid Padding="16" ColumnSpacing="16">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width=".3*" />
+					<ColumnDefinition Width=".6*" />
+					<ColumnDefinition Width=".1*" />
+				</Grid.ColumnDefinitions>
+				<Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit">
+					<Image.Source>
+						<UriImageSource Uri="{Binding ImageUri}" CacheValidity="3" CachingEnabled="true" />
+					</Image.Source>
+				</Image>
+				<StackLayout VerticalOptions="Center" Grid.Column="1" Spacing="0">
+					<Label Text="{Binding Id}" Style="{DynamicResource SPListItemTextStyle}" />
+					<Label Text="{Binding Address}" Style="{DynamicResource SPListItemDetailTextStyle}" />
+				</StackLayout>
+				<Label Grid.Column="2" VerticalTextAlignment="Center" Text="Full!" IsVisible="{Binding IsFull}" TextColor="{StaticResource Accent}" />
+			</Grid>
+		</local:CardView>
+	</StackLayout>
+</ContentView>
